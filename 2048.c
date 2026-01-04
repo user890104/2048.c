@@ -88,8 +88,6 @@ void drawBoard(uint8_t board[SIZE][SIZE], uint8_t scheme, uint32_t score)
 		}
 		printf("\n");
 	}
-	printf("\n");
-	printf("        ←,↑,→,↓ or q        \n");
 	printf("\033[A"); // one line up
 }
 
@@ -492,6 +490,8 @@ int main(int argc, char *argv[])
 	initBoard(board);
 	setBufferedInput(false);
 	drawBoard(board, scheme, score);
+	printf("\033[H"); // move cursor to 0,0
+	printf("2048.c ←, ↑, →, ↓ or q 0 pts\n");
 	while (true)
 	{
 		c = getchar();
